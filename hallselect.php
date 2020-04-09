@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","root","hotel");
+$con=mysqli_connect("localhost","root","","hotel");
 if(isset($_POST['submit']))
 {
 	$code=$_POST['code']; 

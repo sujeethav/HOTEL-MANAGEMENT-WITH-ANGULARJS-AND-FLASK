@@ -31,21 +31,23 @@
     
     
     echo $money_given.$payee_name.$custID.$total_amt;
-    $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
+    $conn = mysqli_connect("localhost","root","","hotel") or die(mysql_error());
     if(!$conn){
         echo "Error:Connection failed";
     }
     $change=$money_given-$total_amt;
-    $sql="SELECT * FROM CUSTOMER WHERE GUEST_ID=$custID";
+    $sql="SELECT * FROM customer WHERE GUEST_ID=$custID";
     $query_result=mysqli_query($conn,$sql);
+	echo mysqli_error($conn); 
     $row = $query_result->fetch_assoc();
     $ph_nooo=$row['PH_NO'];
+	echo "hi".$ph_nooo;
     #echo $ph_nooo;
     $date=date("Y-m-d");
     #echo "CUST: ".$custID;
-    $sql="INSERT INTO `bill`(`AMOUNT`, `NAME`, `DATE`, `PH_NO`, `CUSTOMER_ID`) VALUES ($total_amt,'$payee_name','$date','$ph_nooo',$custID);";
+    $sql="INSERT INTO `bill`(`AMOUNT`, `NAME`, `DATE`, `PH_NO`, `CUSTOMER_ID`) VALUES ($total_amt,'$payee_name','$date',".$ph_nooo.",$custID)";
     $query_result=mysqli_query($conn,$sql);
-    #echo mysqli_error($conn);
+    echo mysqli_error($conn);	
     if($query_result)
     {
         $sql=" UPDATE `invoice` `STATUS`='PAYEMENT SUCCESFUL' WHERE `INVOICE_NUMBER`=$invoice_number;";

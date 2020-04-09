@@ -4,6 +4,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158927725-1');
+</script>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RESERVATION ROOM</title>
@@ -23,27 +32,27 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a  href="http://localhost/Hot/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
+                        <a  href="http://localhost/hotel/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/Hot/admin/custroom.php"><i class="fa fa-bars"></i>ongoing room service</a>
+                        <a  href="custroom.php"><i class="fa fa-bars"></i>ongoing room service</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/Hot/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
+                        <a  href="http://localhost/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/Hot/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
+                        <a  href="http://localhost/hotel/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/Hot/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
+                        <a  href="http://localhost/hotel/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/Hot/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
+                        <a  href="http://localhost/hotel/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
 						
                     </li>					
                     
@@ -72,7 +81,7 @@
                             PERSONAL INFORMATION
                         </div>
                         <div class="panel-body">
-						<form name="form" action="http://localhost/Hot/admin/roomselect.php" method="post">
+						<form name="form" action="roomselect.php" method="post">
                             <div class="form-group">
                                             <!--
 											<label>Title*</label>

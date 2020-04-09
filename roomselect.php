@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","root","hotel");
+$con=mysqli_connect("localhost","root","","hotel");
 if(isset($_POST['submit']))
 {
 	$code=$_POST['code']; 
@@ -14,30 +14,25 @@ if(isset($_POST['submit']))
 							
 		#$con=mysqli_connect("localhost","root","","hotel");
 		
-		$check="SELECT * FROM customer WHERE PH_NO= $_POST[phone]";
+		$check="SELECT * FROM CUSTOMER WHERE PH_NO= $_POST[phone]";
 		
 		$result = mysqli_query($con,$check);
-		if(!$result)
-		{
-			echo mysqli_error($con);
-		}
 		#if($result){echo "<script type='text/javascript'> alert('User Already".$_POST['phone']." in Exists')</script>"; }							
 		#$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 		if(mysqli_num_rows($result) <1) {
 			 
 			#echo"<div>".$_POST[gvtid]."<div>";
-			$con=mysqli_connect("localhost","root","root","hotel");
+			$con=mysqli_connect("localhost","root","","hotel");
 			#$addcust="INSERT INTO customer('AADHAR_NO','FNAME','MINIT','LNAME','PH_NO','ASTATE','CITY','COUNTRY') VALUES ('$_POST[gvtid]','$_POST[fname]','$_POST[mname]','$_POST[lname]','$_POST[phone]','$_POST[state]','$_POST[city]','$_POST[country]')";
 			$addcust="INSERT INTO customer(aadhar_no,fname,minit,lname,ph_no,astate,city,visit) VALUES ($_POST[gvtid],'$_POST[fname]','$_POST[mname]','$_POST[lname]',$_POST[phone],'$_POST[state]','$_POST[city]',1)";
 			$s=mysqli_query($con,$addcust);
             if(!$s ) {
-               echo 'Could not enter data: ' . mysql_error();
+               die('Could not enter data: ' . mysql_error());
             }
 		}
 		else{
 			$xyz="update customer set VISIT=VISIT+1 where PH_NO=$_POST[phone]";
 			mysqli_query($con,$xyz);
-			echo mysqli_error($con);
 		}
 
 		/*else      

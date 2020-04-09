@@ -42,7 +42,7 @@
  </tr>
  <?php
     $custId=$_POST['custid'];
-    $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
+    $conn = mysqli_connect("localhost","root","","hotel") or die(mysql_error());
     if(!$conn){
         echo "Connection failed";
     } 

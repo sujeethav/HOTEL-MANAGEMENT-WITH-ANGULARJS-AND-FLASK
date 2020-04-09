@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","root","hotel");
+$con=mysqli_connect("localhost","root","","hotel");
 $a="select SUM(AMOUNT) as tamt,AVG(AMOUNT) as avg,COUNT(AMOUNT) as cnt from bill";
 $b=mysqli_query($con,$a);
 

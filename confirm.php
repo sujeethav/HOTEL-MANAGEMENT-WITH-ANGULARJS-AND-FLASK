@@ -1,6 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","root","hotel");
-echo mysqli_error($con);
+$con=mysqli_connect("localhost","root","","hotel");
 if(isset($_POST['submit']))
 {	
 	$gid=$_POST['gstid'];
@@ -8,19 +7,17 @@ if(isset($_POST['submit']))
 	$cout=$_POST['cout'];
 	$cat=$_POST['cat'];
 	$rno=$_POST['roomselect'];
-	$set="update room set customer_id=".$gid."where room_no=".$rno;
-	$som=($con,$set);
-	if(!$som)
-{
-	echo mysqli_error($con);
-}
-
-	$reser="INSERT INTO reservation(gst_id,checkin_date,checkout_date,period_stay,room_number,category) VALUES ($gid,'$cin','$cout','date_diff($cin,$cout)',$rno,'$cat')";
+	$set="update room set customer_id=$gid where room_no=$rno";
+	mysqli_query($con,$set);
+	//$cin=strtotime($cin);
+	//$newformat1 = date('Y-m-d',$cin);
+	//$cout=strtotime($cout);
+	//$newformat2 = date('Y-m-d',$cout);
+	$dif1=$cout-$cin;
+	
+	$reser="INSERT INTO reservation(gst_id,checkin_date,checkout_date,period_stay,room_number,category) VALUES ($gid,'$cin','$cout',$dif1,$rno,'$cat')";
 	$confirm=mysqli_query($con,$reser);
-	if(!$confirm)
-	{
-	echo mysqli_error($con);
-}
+	
 	
 	}?>
 	

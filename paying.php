@@ -27,7 +27,7 @@
         $payment_method=$_POST['payment_method'];
         $custId=$_POST['custID'];
     }
-    $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
+    $conn = mysqli_connect("localhost","root","","hotel") or die(mysql_error());
     if(!$conn){
         echo "Error:Connection failed";
     } 

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-158927725-1');
+</script>
  <title>Table V01</title>
  <style>
  form > *{
