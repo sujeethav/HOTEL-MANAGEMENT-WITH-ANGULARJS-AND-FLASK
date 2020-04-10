@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","","hotel");
+$con=mysqli_connect("localhost","root","root","hotel");
 if(isset($_POST['submit']))
 {
 	$code=$_POST['code']; 
@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 	else
 	{
 							
-		#$con=mysqli_connect("localhost","root","","hotel");
+		#$con=mysqli_connect("localhost","root","root","hotel");
 		
 		$check="SELECT * FROM CUSTOMER WHERE PH_NO= $_POST[phone]";
 		
@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 		if(mysqli_num_rows($result) <1) {
 			 
 			#echo"<div>".$_POST[gvtid]."<div>";
-			$con=mysqli_connect("localhost","root","","hotel");
+			$con=mysqli_connect("localhost","root","root","hotel");
 			#$addcust="INSERT INTO customer('AADHAR_NO','FNAME','MINIT','LNAME','PH_NO','ASTATE','CITY','COUNTRY') VALUES ('$_POST[gvtid]','$_POST[fname]','$_POST[mname]','$_POST[lname]','$_POST[phone]','$_POST[state]','$_POST[city]','$_POST[country]')";
 			$addcust="INSERT INTO customer(aadhar_no,fname,minit,lname,ph_no,astate,city) VALUES ($_POST[gvtid],'$_POST[fname]','$_POST[mname]','$_POST[lname]',$_POST[phone],'$_POST[city]','$_POST[country]')";
 			$s=mysqli_query($con,$addcust);

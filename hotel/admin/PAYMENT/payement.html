@@ -28,7 +28,7 @@
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
 						
                     </li>
                     <li>
