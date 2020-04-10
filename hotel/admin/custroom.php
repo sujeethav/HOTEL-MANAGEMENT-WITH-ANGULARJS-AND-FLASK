@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost","root","","hotel");
+$con=mysqli_connect("localhost","root","root","hotel");
 $a="select fname,guest_id,room_no,checkout_date,ph_no,checkin_date from customer,reservation,room where guest_id=gst_id and gst_id=customer_id and hall_number is NULL";
 $b=mysqli_query($con,$a);
 
@@ -106,8 +106,6 @@ tr:nth-child(even) {
   </tbody>
 </table>
 </div>
-  
-<p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 
 </body>
 </html>

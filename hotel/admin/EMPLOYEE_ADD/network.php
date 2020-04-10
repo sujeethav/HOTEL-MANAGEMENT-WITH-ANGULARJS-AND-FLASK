@@ -1,5 +1,5 @@
 <html><?php
-$con=mysqli_connect("localhost","root","","hotel");
+$con=mysqli_connect("localhost","root","root","hotel");
 if(isset($_POST['submit']))
 {
 	$check="select * from employee where PHONE=$_POST[phone]";

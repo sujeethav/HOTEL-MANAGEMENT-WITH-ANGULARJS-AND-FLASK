@@ -16,7 +16,7 @@ header("location:index.php");
 							else
 							{
 							
-									$con=mysqli_connect("localhost","root","","hotel");
+									$con=mysqli_connect("localhost","root","root","hotel");
 									$check="SELECT * FROM CUSTOMER WHERE PH_NO= '$_POST[phone]'";
 									$result = mysqli_query($con,$check);
 									

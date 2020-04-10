@@ -40,7 +40,7 @@
       <a class="navbar-brand" href="#">sunrise</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="http://localhost/hotel/admin/roomreservation.php">NEW RESERVATION</a></li>
+      <li><a href="http://localhost/webtech-2/hotel/admin/roomreservation.php">NEW RESERVATION</a></li>
 
     </ul>
   </div>
@@ -98,7 +98,7 @@
 
     </div>
 <?php
-$con=mysqli_connect("localhost","root","","hotel");
+$con=mysqli_connect("localhost","root","root","hotel");
 if(isset($_POST['submit']))
 {
 	$phone= $_POST['phone'];
