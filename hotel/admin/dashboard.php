@@ -112,8 +112,7 @@
         </div>
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
+      <iframe src="https://calendar.google.com/calendar/embed?src=8jh7anhdc3j1qin5ka96sf2bb8%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
       <h2>Section title</h2>
       <div class="table-responsive">
       </div>
