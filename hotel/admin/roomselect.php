@@ -28,44 +28,16 @@ if(isset($_POST['submit']))
 			$addcust="INSERT INTO customer(aadhar_no,fname,minit,lname,ph_no,astate,city,visit) VALUES ($_POST[gvtid],'$_POST[fname]','$_POST[mname]','$_POST[lname]',$_POST[phone],'$_POST[state]','$_POST[city]',1)";
 			$s=mysqli_query($con,$addcust);
             if(!$s ) {
-               die('Could not enter data: ' . mysql_error());
+               die('Could not enter data: ' . mysqli_error($con));
             }
 		}
 		else{
 			$xyz="update customer set VISIT=VISIT+1 where PH_NO=$_POST[phone]";
 			mysqli_query($con,$xyz);
 		}
-
-		/*else      
-		{
-			$new ="Not Conform";
-			$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
-			if (mysqli_query($con,$newUser))
-			{
-				echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
-					
-			}
-			else
-			{
-				echo "<script type='text/javascript'> alert('Error adding user in database')</script>";
-											
-			}
-		}
-
-		$msg="Your code is correct"; */
 	}
 } 
 ?>
-
-
-
-<?php  /*
-session_start();  
-if(!isset($_SESSION["user"]))
-{
- header("location:index.php");
-} */
-?> 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
