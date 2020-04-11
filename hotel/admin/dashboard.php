@@ -1,36 +1,16 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
+    
     <title>Sunrise Dashboard</title>
-
+    <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
 <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
     <link href="dash.css" rel="stylesheet">
   </head>
@@ -50,19 +30,19 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" href="dashboard.php">
               <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
+              Dashboard 
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="roomreservation.php">
               <span data-feather="plus-square"></span>
               Room Reservation
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="custroom.php">
               <span data-feather="activity"></span>
                 On-Going Room Service
             </a>
@@ -71,7 +51,7 @@
     <hr/>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="EMPLOYEE_ADD/index.php">
               <span data-feather="user-plus"></span>
                 Add Employee
             </a>
@@ -83,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="EMPLOYEE_DELETE/delete.php">
               <span data-feather="user-minus"></span>
                 Remove Employees
             </a>
@@ -92,7 +72,7 @@
     <hr/>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="stats.php">
               <span data-feather="bar-chart-2"></span>
                 View Stats
             </a>
@@ -103,7 +83,9 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+      <div class="page-header">
+        <h3>Main Dashboard</h3>
+    </div>  
         <div class="btn-toolbar mb-2 mb-md-0">
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
@@ -111,10 +93,47 @@
           </button>
         </div>
       </div>
-
-      <iframe src="https://calendar.google.com/calendar/embed?src=8jh7anhdc3j1qin5ka96sf2bb8%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="1000" height="600" frameborder="0" scrolling="no"></iframe>
-      <h2>Section title</h2>
-      <div class="table-responsive">
+      <br/><br/>
+      <div class="row">
+        <div class="col-md-6">
+          <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FKolkata&amp;src=Y2xhc3Nyb29tMTE3MzMxMzgyNDk4MzU3NDUxMjk0QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%230B8043&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0" style="border:solid 1px #777" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="col-md-6">
+        <table class="table table-striped table-hover">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th>TYPE OF ROOM/HALL</th>
+                          <th>COST PER NIGHT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Superior Room</td>
+                          <td>Rs. 1400</td>
+                        </tr>
+                        <tr>
+                          <td>Deluxe Room</td>
+                          <td>Rs. 1000</td>
+                        </tr>
+                        <tr>
+                          <td>Guest House</td>
+                          <td>Rs. 2500</td>
+                        </tr>
+                        <tr>
+                          <td>Single Room</td>
+                          <td>Rs. 850</td>
+                        </tr>
+                        <tr>
+                          <td>Big Convention Hall</td>
+                          <td>Rs. 7500</td>
+                        </tr>
+                        <tr>
+                          <td>Small Convention Hall</td>
+                          <td>Rs. 3900</td>
+                        </tr>
+                      </tbody>
+          </table>
+      </div>
       </div>
     </main>
   </div>

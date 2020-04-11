@@ -1,330 +1,181 @@
-<?php
-#include('db.php')
-?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-158927725-1');
-</script>
-      <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RESERVATION ROOM</title>
-	<!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <title>Room Reservation</title>
+        <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
+         <!-- Bootstrap core CSS -->
+         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="dash.css" rel="stylesheet">
 </head>
+
 <body>
-    <div id="wrapper">
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-
-                    <li>
-                        <a  href="http://localhost/hotel/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
-						
-                    </li>
-                    <li>
-                        <a  href="custroom.php"><i class="fa fa-bars"></i>ongoing room service</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/hotel/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/hotel/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/hotel/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
-						
-                    </li>					
-                    
-					</ul>
-
-            </div>
-
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sunrise Hotels</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="#">Sign out</a>
+                </li>
+            </ul>
         </nav>
-       
-        <div id="page-wrapper" >
-            <div id="page-inner">
-			 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            RESERVATION <small></small>
-                        </h1>
-                    </div>
-                </div> 
-                 
-                                 
-            <div class="row">
-                
-                <div class="col-md-5 col-sm-5">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            PERSONAL INFORMATION
-                        </div>
-                        <div class="panel-body">
-						<form name="form" action="roomselect.php" method="post">
-                            <div class="form-group">
-                                            <!--
-											<label>Title*</label>
-                                            <select name="title" class="form-control" required >
-												<option value selected ></option>
-                                                <option value="Dr.">Dr.</option>
-                                                <option value="Miss.">Miss.</option>
-                                                <option value="Mr.">Mr.</option>
-                                                <option value="Mrs.">Mrs.</option>
-												<option value="Prof.">Prof.</option>
-												<option value="Rev .">Rev .</option>
-												<option value="Rev . Fr">Rev . Fr .</option>
-                                            </select>
-										-->
-                              </div>
-							  <div class="form-group">
-                                            <label>First Name</label>
-                                            <input name="fname" type="text" class="form-control" required>
-                                            
-                               </div>
-							   <div class="form-group">
-                                            <label>middle Name</label>
-                                            <input name="mname" type="text" class="form-control" required>
-                                            
-                               </div>
-							   <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input name="lname" type="text" class="form-control" required>
-                                            
-                               </div>							   
-							   <div class="form-group">
-                                            <label>government id number</label>
-                                            <input name="gvtid" type="number" class="form-control" required>
-                                            
-                               </div>
-							   <!--
-							   <div class="form-group">
-                                            <label>Nationality*</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Sri Lankan" checked="">Sri Lankan
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="nation"  value="Non Sri Lankan ">Non Sri Lankan 
-                                            </label>
-                         
-                                </div> -->
-								<?php
-
-								#$countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
-
-								?><!--
-								<div class="form-group">
-                                            <label>Passport Country*</label>
-                                            <select name="country" class="form-control" required>
-												<option value selected ></option>
-                                                <?php
-												#foreach($countries as $key => $value):
-												#echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
-												#endforeach;
-												?> 
-                                            </select>
-								</div>-->
-								<div class="form-group">
-                                            <label>Country</label>
-                                            <input name="country" type ="text" class="form-control" required>
-                                            
-                               </div>								
-								<div class="form-group">
-                                            <label>Phone Number</label>
-                                            <input name="phone" type ="text" class="form-control" required>
-                                            
-                               </div>
-                               
-							   <div class="form-group">
-                                            <label>State</label>
-                                            <input name="state" type="text" class="form-control" required>
-                                            
-                               </div>
-							   <div class="form-group">
-                                            <label>City</label>
-                                            <input name="city" type="text" class="form-control" required>
-                                            
-                               </div>							   
-                        </div>
-                        
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php">
+                        <span data-feather="home"></span>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roomreservation.php">
+                        <span data-feather="plus-square"></span>
+                        Room Reservation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="custroom.php">
+                        <span data-feather="activity"></span>
+                            On-Going Room Service
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="EMPLOYEE_ADD/index.php">
+                        <span data-feather="user-plus"></span>
+                            Add Employee
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <span data-feather="users"></span>
+                            View Current Employees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="EMPLOYEE_DELETE/delete.php">
+                        <span data-feather="user-minus"></span>
+                            Remove Employees
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="stats.php">
+                        <span data-feather="bar-chart-2"></span>
+                            View Stats
+                        </a>
+                    </li>
+                </ul>
                 </div>
-                
-                  
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            RESERVATION INFORMATION
-                        </div>
-                        <div class="panel-body">
-								<div class="form-group">
-                                            <label>Type Of Room *</label>
-                                            <select name="catroom"  class="form-control" required>
-												<option value selected ></option>
-                                                <option value="Superior room">SUPERIOR ROOM</option>
-                                                <option value="Deluxe room">DELUXE ROOM</option>
-												<option value="Guest house">GUEST HOUSE</option>
-												<option value="Single room">SINGLE ROOM</option>
-                                            </select>
-                              </div>
-							  <!--
-							  <div class="form-group">
-                                            <label>Bedding Type</label>
-                                            <select name="bed" class="form-control" required>
-												<option value selected ></option>
-                                                <option value="Single">Single</option>
-                                                <option value="Double">Double</option>
-												<option value="Triple">Triple</option>
-                                                <option value="Quad">Quad</option>
-												<option value="None">None</option>
-                                                
-                                             
-                                            </select>
-                              </div> -->
-							  <div class="form-group">
-                                            <label>No.of beds *</label>
-											<input name="nbeds" type ="text" class="form-control" required>
-                                            <!--<select name="nbeds" class="form-control" required>
-												<option value selected ></option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-												<option value="6">6</option>
-												<option value="7">7</option> 
-                                            </select>-->
-                              </div>
-							 
-							 <!--
-							  <div class="form-group">
-                                            <label>Meal Plan</label>
-                                            <select name="meal" class="form-control"required>
-												<option value selected ></option>
-                                                <option value="Room only">Room only</option>
-                                                <option value="Breakfast">Breakfast</option>
-												<option value="Half Board">Half Board</option>
-												<option value="Full Board">Full Board</option>
-												
-                                                
-                                             
-                                            </select>
-                              </div> -->
-							  <div class="form-group">
-                                            <label>Check-In</label>
-                                            <input name="cin" type ="date" class="form-control">
-                                            
-                               </div>
-							   <div class="form-group">
-                                            <label>Check-Out</label>
-                                            <input name="cout" type ="date" class="form-control">
-                                            
-                               </div>
-                       </div>
-                        
-                    </div>
-                </div>
-				
-				
-                <div class="col-md-12 col-sm-12">
-                    <div class="well">
-                        <h4>HUMAN VERIFICATION</h4>
-                        <p>Type Below this code <?php $Random_code=rand(); echo$Random_code; ?> </p><br />
-						<p>Enter the random code<br /></p>
-							<input  type="text" name="code1" title="random code" />
-							<input type="hidden" name="code" value="<?php echo $Random_code; ?>" />
-						<input type="submit" name="submit" class="btn btn-primary">
-						<?php /*
-							if(isset($_POST['submit']))
-							{
-							$code1=$_POST['code1'];
-							$code=$_POST['code']; 
-							if($code1!="$code")
-							{
-							$msg="Invalide code"; 
-							}
-							else
-							{
-							
-									$con=mysqli_connect("localhost","root","","hotel");
-									$check="SELECT * FROM CUSTOMER WHERE PH_NO= '$_POST[phone]'";
-									$result = mysqli_query($con,$check);
-									
-									$data = mysqli_fetch_array($rs, MYSQLI_NUM);
-									if(mysqli_num_rows($result) <1) {
-										/* echo "<script type='text/javascript'> alert('User Already in Exists')</script>"; 
-										$addcust="INSERT INTO 'customer'('aadhar_no','fname','minit','lname','ph_no','astate','city') VALUES ('$_POST[gvtid]','$_POST[fname]','$_POST[mname]','$_POST[lname]','$_POST[phone]','$_POST[state]','$_POST[city]');"
-										mysqli_query($con,$addcust);
-									}
-
-									else
-									{
-										#$new ="Not Conform";
-										#$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
-										if (mysqli_query($con,$newUser))
-										{
-											echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
-											
-										}
-										else
-										{
-											echo "<script type='text/javascript'> alert('Error adding user in database')</script>";
-											
-										}
-									}
-
-							$msg="Your code is correct";
-							}
-							} */
-							?>
-						</form>
-							
-                    </div>
-                </div>
-            </div>
-           
-                
-                </div>
-                    
-            
-				
-					</div>
-			 <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
+            </nav>
         </div>
-     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
-    
-   
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <br/>  
+    <div class="page-header">
+        <h3>Room Reservation</h3>
+    </div>
+    <hr/>
+    <br/>
+    <div class="row">
+    <div class="col-md-6" >
+        <form name="form" action="roomselect.php" method="post">
+        <div class="panel panel-default" style="height:fit-content;width:100%;background-color:rgb(220,220,220);">
+            <div class="panel-heading"><b>Guest Details</b></div>
+                <div class="panel-body">
+					<div class="form-group">
+                        <label>First Name</label>
+                            <input name="fname" type="text" class="form-control" required>                        
+                    </div>
+					<div class="form-group">
+                        <label>Middle Name</label>
+                            <input name="mname" type="text" class="form-control" required>                
+                    </div>
+				    <div class="form-group">
+                        <label>Last Name</label>
+                            <input name="lname" type="text" class="form-control" required>          
+                    </div>							   
+					<div class="form-group">
+                        <label>Govt. ID Number</label>
+                            <input name="gvtid" type="number" class="form-control" required>              
+                    </div>
+					<div class="form-group">
+                        <label>Country</label>
+                            <input name="country" type ="text" class="form-control" required>                
+                    </div>								
+					<div class="form-group">
+                        <label>Phone Number</label>
+                            <input name="phone" type ="text" class="form-control" required>          
+                     </div>  
+					<div class="form-group">
+                        <label>State</label>
+                            <input name="state" type="text" class="form-control" required>    
+                    </div>
+					<div class="form-group">
+                        <label>City</label>
+                            <input name="city" type="text" class="form-control" required>        
+                    </div>		
+                </div>
+            </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default" style="height:fit-content;width:100%;background-color:rgb(220,220,220)">
+            <div class="panel-heading"><b>Room Reservation Details</b></div>    
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Type Of Room *</label>
+                            <select name="catroom"  class="form-control" required>
+							<option value selected ></option>
+                            <option value="Superior room">SUPERIOR ROOM</option>
+                            <option value="Deluxe room">DELUXE ROOM</option>
+							<option value="Guest house">GUEST HOUSE</option>
+							<option value="Single room">SINGLE ROOM</option>
+                            </select>
+                    </div>
+					<div class="form-group">
+                                <label>No.of beds *</label>
+								<input name="nbeds" type ="text" class="form-control" required>
+                    </div>
+					<div class="form-group">
+                                <label>Check-In</label>
+                                <input name="cin" type ="date" class="form-control">            
+                    </div>
+					<div class="form-group">
+                                <label>Check-Out</label>
+                                <input name="cout" type ="date" class="form-control">            
+                    </div>
+                    <br/>
+                    <hr>
+                    <div class="form-group">
+                        <h4>HUMAN VERIFICATION</h4>
+                            <p>Type Below this code <h3 class="unselectable" style="border-style:solid;width:fit-content;text-shadow: 0 0 5px rgba(0,0,0,1);opacity:0.39;color:black;"><i><strike><?php $Random_code=rand(); echo$Random_code; ?></strike> </i></h3></p>
+                                <input  type="text" name="code1" title="random code" />
+                                <input type="hidden" name="code" value="<?php echo $Random_code; ?>" /><br/><br/>
+                            <input type="submit" name="submit" class="btn btn-primary"> 
+                    </div>
+    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="dashboard.js"></script></body>            
 </body>
 </html>
