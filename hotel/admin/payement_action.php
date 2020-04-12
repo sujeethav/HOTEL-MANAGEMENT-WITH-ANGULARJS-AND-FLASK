@@ -1,39 +1,116 @@
-<html>
-<head>
- <title>Table with database</title>
- <style>
-  table {
-   border-collapse: collapse;
-   width: 100%;
-   color: #588c7e;
-   font-family: monospace;
-   font-size: 25px;
-   text-align: left;
-     } 
-  th {
-   background-color: #588c7e;
-   color: white;
-    }
-  tr:nth-child(even) {background-color: #f2f2f2}
- </style>
-</head>
-<script>
-    function payement_page()
-    {
-        window.open('paypage.php')
-    }
-    function cash()
-    {
-        
-    }
-    </script>
-<body>
+
+DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<style type="text/css">
+		table{
+			border-collapse: collapse;
+			width: 100%;
+			color: #000000;
+			font-family: monospace;
+			font-size: 18px;
+			text-align: Left;
+		}
+		th{
+			background-color: #005f69;
+			color: white;
+		}
+		</style>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="top-banner.jpg">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Travel</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="css/linearicons.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/magnific-popup.css">
+			<link rel="stylesheet" href="css/jquery-ui.css">				
+			<link rel="stylesheet" href="css/nice-select.css">							
+			<link rel="stylesheet" href="css/animate.min.css">
+			<link rel="stylesheet" href="css/owl.carousel.css">				
+			<link rel="stylesheet" href="css/main.css">
+		</head>
+		<body>	
+			<header id="header">
+				<div class="header-top">
+					<div class="container">
+			  		<div class="row align-items-center">
+			  			<div class="col-lg-6 col-sm-6 col-6 header-top-left">
+			  				<ul>
+			  					<li><a href="#">Visit Us</a></li>
+			  					<li><a href="#">Book rooms</a></li>
+			  				</ul>			
+			  			</div>
+			  			<div class="col-lg-6 col-sm-6 col-6 header-top-right">
+							<div class="header-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-dribbble"></i></a>
+								<a href="#"><i class="fa fa-behance"></i></a>
+							</div>
+			  			</div>
+			  		</div>			  					
+					</div>
+				</div>
+				<div class="container main-menu">
+					<div class="row align-items-center justify-content-between d-flex">
+				      
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li><a href="index.php">Home</a></li>
+				          <li><a href="about.php">About</a></li>
+				          <li><a href="packages.php">Packages</a></li>
+				          <li><a href="hotels.php">Hotels</a></li>
+				          <li><a href="insurance.php">Insurance</a></li>
+				          <li class="menu-has-children"><a href="">Pages</a>
+				            <ul>
+				            	  <li><a href="elements.php">Elements</a></li>				                		
+				            </ul>
+				          </li>					          					          		          
+				          <li><a href="contact.php">Contact</a></li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->					      		  
+					</div>
+				</div>
+			</header><!-- #header -->
+			  
+			<!-- start banner Area -->
+			<section class="about-banner relative">
+				<div class="overlay overlay-bg"></div>
+				<div class="container">				
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Tour Packages				
+							</h1>	
+							<p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.php"> Tour Packages</a></p>
+						</div>	
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+  
+
 <h1>Customer And Room Details</h1><br>
  <table>
  <tr>
   <th>GUEST ID</th> 
   <th>AADHAR_NO</th> 
-  <th>FNAME</th>
+  <th>FNAME</th><!DOCTYPE html>          
   <th>MINIT</th>
   <th>LNAME</th>
   <th>Phone Number</th>
@@ -98,7 +175,8 @@
     <h2>Pay Here</h2>
     
     <form method="POST" action="paying.php">
-    <input type="radio" name="payment_method" value="cash">Cash<br>
+
+            <input type="radio" name="payment_method" value="cash">Cash<br>
             <input type="radio" name="payment_method" value="card">Credit/Debit Card<br>
             <input type='hidden' name='custID' value=<?php echo $custId ?>>
             <input type="radio" name="payment_method" value="wallets">Payment Wallets<br>
