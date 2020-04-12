@@ -32,7 +32,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a  href="http://localhost/hotel/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
 						
                     </li>
                     <li>
@@ -40,19 +40,19 @@
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/hotel/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/hotel/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
 						
                     </li>
                     <li>
-                        <a  href="http://localhost/hotel/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
+                        <a  href="http://localhost/webtech-2/hotel/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
 						
                     </li>					
                     
