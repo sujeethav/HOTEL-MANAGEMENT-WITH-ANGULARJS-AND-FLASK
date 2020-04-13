@@ -16,7 +16,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sunrise Hotels</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="main_page.html">Sunrise Hotels</a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="#">Sign out</a>
@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="custroom.php">
+            <a class="nav-link" href="custroom.html">
               <span data-feather="activity"></span>
                 On-Going Room Service
             </a>
@@ -51,19 +51,19 @@
     <hr/>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link" href="EMPLOYEE_ADD/index.php">
+            <a class="nav-link" href="employee_add.html">
               <span data-feather="user-plus"></span>
                 Add Employee
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="cur_employees.html">
               <span data-feather="users"></span>
                 View Current Employees
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="EMPLOYEE_DELETE/delete.php">
+            <a class="nav-link" href="employee_delete.html">
               <span data-feather="user-minus"></span>
                 Remove Employees
             </a>
