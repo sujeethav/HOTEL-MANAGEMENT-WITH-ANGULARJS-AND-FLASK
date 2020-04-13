@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+
+<style>
+
+div.divTableCell {
+  border: 10px solid #000000;
+  background-color: #FFFFFF;
+  width: 50%;
+  height: 20%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+  border: 1px solid #FFFFFF;
+  padding: 3px 3px;
+}
+.divTable.blueTable .divTableBody .divTableCell {
+  font-size: 13px;
+}
+.divTable.blueTable .divTableCell:nth-child(even) {
+  background: #FFFFFF;
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+	 text-align: right;
+}
+.blueTable .tableFootStyle .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}
+</style>
+
+
+
+
+
+
+
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
 
         <title>Current Room Service</title>
-        <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
+        <link rel="icon" href="http://127.0.0.1/hotel/admin/web-icon/favicon.ico" type="image/icon type">
 
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -41,7 +99,7 @@
         var options = {
 
           title: 'PAYMENT METHODS',
-                     width:650,
+                     width:500,
                      height:400,	
                      is3D: true,
                      backgroundColor: '#FFFFFF',
@@ -67,7 +125,7 @@
           title: 'Company Performance',
           curveType: 'function',
           legend: { position: 'bottom' },
-          width:650,
+          width:500,
                      height:400,	
                      backgroundColor: '#FFFFFF',
                      color:'#000000',
@@ -96,7 +154,7 @@
           },
           bars: 'horizontal' ,
 
-                    width:650,
+                    width:500,
                      height:400,
            colors: ['yellow','green']// Required for Material Bar Charts.
         };
@@ -120,7 +178,7 @@
           },
           bars: 'vertical' ,
 
-                    width:650,
+                    width:500,
                      height:400,
            colors: ['green','green']// Required for Material Bar Charts.
         };
@@ -142,7 +200,7 @@
 
 
 
-    <link href="dash.css" rel="stylesheet">
+    <link href="http://127.0.0.1/hotel/admin/dash.css" rel="stylesheet">
   </head>
 <body>
       <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -159,19 +217,20 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">
+                        <a class="nav-link" href="../dashboard.php">
                         <span data-feather="home"></span>
                         Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="roomreservation.php">
+                        <a class="nav-link" href="../roomreservation.php">
                         <span data-feather="plus-square"></span>
                         Room Reservation
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="custroom.php">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../custroom.php">
                         <span data-feather="activity"></span>
                             On-Going Room Service
                         </a>
@@ -180,7 +239,7 @@
                 <hr/>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="EMPLOYEE_ADD/index.php">
+                        <a class="nav-link" href="../EMPLOYEE_ADD/index.php">
                         <span data-feather="user-plus"></span>
                             Add Employee
                         </a>
@@ -192,7 +251,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="EMPLOYEE_DELETE/delete.php">
+                        <a class="nav-link" href="../EMPLOYEE_DELETE/delete.php">
                         <span data-feather="user-minus"></span>
                             Remove Employees
                         </a>
@@ -201,7 +260,7 @@
                 <hr/>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="stats.php">
+                        <a class="nav-link" href="../stats.php">
                         <span data-feather="bar-chart-2"></span>
                             View Stats
                         </a>
@@ -220,12 +279,12 @@
 <div class="divTableCell" id="LineChart">{{dat}}</div>
 </div>
 <div class="divTableRow">
-<div class="divTableCell" id="barchart_material">cell1_2</div>
-<div class="divTableCell" id="barchart_material1">cell2_2</div>
+<div class="divTableCell" id="barchart_material"></div>
+<div class="divTableCell" id="barchart_material1"></div>
 </div>
 <div class="divTableRow">
-<div class="divTableCell">cell1_3</div>
-<div class="divTableCell">cell2_3</div>
+<div class="divTableCell"></div>
+<div class="divTableCell"></div>
 </div>
 </div>
 </div>
@@ -240,6 +299,6 @@
       <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="dashboard.js"></script></body>       
+        <script src="http://127.0.0.1/hotel/admin/dashboard.js"></script></body>       
 </body>
 </html>

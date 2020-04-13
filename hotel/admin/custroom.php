@@ -92,6 +92,12 @@ $b=mysqli_query($con,$a);
                             View Stats
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/graph">
+                        <span data-feather="bar-chart-2"></span>
+                            Analytics
+                        </a>
+                    </li>
                 </ul>
                 </div>
             </nav>
