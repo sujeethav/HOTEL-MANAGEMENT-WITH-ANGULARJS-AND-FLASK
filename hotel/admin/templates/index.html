@@ -64,7 +64,7 @@ div.divTableCell {
         <meta name="description" content="">
 
         <title>Current Room Service</title>
-        <link rel="icon" href="http://127.0.0.1/hotel/admin/web-icon/favicon.ico" type="image/icon type">
+        <link rel="icon" href="http://127.0.0.1/webtech-2/hotel/admin/web-icon/favicon.ico" type="image/icon type">
 
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -188,19 +188,7 @@ div.divTableCell {
         chart3.draw(data3, google.charts.Bar.convertOptions(options3));
       }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-    <link href="http://127.0.0.1/hotel/admin/dash.css" rel="stylesheet">
+    <link href="http://127.0.0.1/webtech-2/hotel/admin/dash.css" rel="stylesheet">
   </head>
 <body>
       <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -217,20 +205,20 @@ div.divTableCell {
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="127.0.0.1/hotel/admin/dashboard.php">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/dashboard.php">
                         <span data-feather="home"></span>
                         Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../roomreservation.php">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/roomreservation.php">
                         <span data-feather="plus-square"></span>
                         Room Reservation
                         </a>
                     </li>
                     <li class="nav-item">
                     <li class="nav-item">
-                        <a class="nav-link" href="127.0.0.1/hotel/admin/custroom.html">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/custroom.html">
                         <span data-feather="activity"></span>
                             On-Going Room Service
                         </a>
@@ -239,19 +227,19 @@ div.divTableCell {
                 <hr/>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="127.0.0.1/hotel/admin/employee_add.html">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/employee_add.html">
                         <span data-feather="user-plus"></span>
                             Add Employee
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="127.0.0.1/hotel/admin/cur_employees.html">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/cur_employees.html">
                         <span data-feather="users"></span>
                             View Current Employees
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="127.0.0.1/hotel/admin/employee_delete.html">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/employee_delete.html">
                         <span data-feather="user-minus"></span>
                             Remove Employees
                         </a>
@@ -260,11 +248,17 @@ div.divTableCell {
                 <hr/>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="../stats.php">
+                        <a class="nav-link" href="http://localhost/webtech-2/hotel/admin/stats.php">
                         <span data-feather="bar-chart-2"></span>
                             View Stats
                         </a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="http://localhost:5000/wt2/graph">
+                      <span data-feather="bar-chart"></span>
+                          Analytics
+                      </a>
+                  </li>
                 </ul>
                 </div>
             </nav>
@@ -272,6 +266,11 @@ div.divTableCell {
     </div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <!--PAGE CONETENT HERE!!!!-->
+      <br>
+<div class="page-header">
+  <h2>Analytics</h2>
+</div>
+<hr/>
 <div class="divTable blueTable">
 <div class="divTableBody">
 <div class="divTableRow">
@@ -288,17 +287,11 @@ div.divTableCell {
 </div>
 </div>
 </div>
-
-
-
-
-
-
       </main>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="http://127.0.0.1/hotel/admin/dashboard.js"></script></body>       
+        <script src="http://127.0.0.1/webtech-2/hotel/admin/dashboard.js"></script></body>       
 </body>
 </html>
