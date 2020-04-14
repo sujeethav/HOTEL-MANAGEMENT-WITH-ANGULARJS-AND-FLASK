@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Add Employee</title>
+        <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
+         <!-- Bootstrap core CSS -->
+         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Custom styles for this template -->
+        <link href="dash.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="main_page.html">Sunrise Hotels</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link" href="#">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php">
+                        <span data-feather="home"></span>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roomreservation.php">
+                        <span data-feather="plus-square"></span>
+                        Room Reservation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="custroom.html">
+                        <span data-feather="activity"></span>
+                            On-Going Room Service
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_add.html">
+                        <span data-feather="user-plus"></span>
+                            Add Employee
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cur_employees.html">
+                        <span data-feather="users"></span>
+                            View Current Employees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_delete.html">
+                        <span data-feather="user-minus"></span>
+                            Remove Employees
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="stats.php">
+                        <span data-feather="bar-chart-2"></span>
+                            View Stats
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/graph">
+                        <span data-feather="bar-chart-2"></span>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <br/>  
+    <div class="page-header">
+        <h3>Add Employee</h3>
+    </div>
+    <hr/>
+    <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <form id="myForm" action="">
+                    <div class="panel panel-default" style="height:fit-content;width:100%;background-color:rgb(220,220,220);">
+                        <div class="panel-heading"><b>Personal Details</b></div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input id="fname" type="text" class="form-control" required>  
+                                </div>
+                                <div class="form-group">
+                                    <label>Middle Name</label>
+                                    <input id="mname" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input id="lname" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date Of Birth</label>
+                                    <input id="dob" type="date" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input id="phno" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select id="gender" class="form-control form-control" placeholder="Gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default" style="height:fit-content;width:100%;background-color:rgb(220,220,220);">
+                            <div class="panel-heading"><b>Employee Details</b></div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label>Salary</label>
+                                    <input id="salary" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Join Date</label>
+                                    <input id="join_date" type="date" class="form-control" required>
+                                </div>
+                                 </form>
+                                <div class="form-group">
+                                    
+                                    <button class="btn btn-primary" onclick='submit()'>Submit</button>
+                                </div>
+                                <div class="missingValues" style="visibility:hidden;font-weight: bold;color:red;" id="missingDiv">Please fill in all details!</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                        <h4 class="modal-title" id="mt">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body" id="mb">
+                        Modal body..
+                        </div>
+                        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+        </div>
+
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="dashboard.js"></script></body>
+        <script>
+            function submit(){
+                console.log('inside_func');
+                toSend=Object();
+                if(fname.value=='' || mname.value=='' || lname.value=='' || dob.value==''|| phno.value=='' || gender.value=='' || salary.value=='' || join_date.value==''){
+                    document.getElementById('missingDiv').style.visibility="visible";
+                    return;
+                }
+                toSend['fname']=fname.value;
+                toSend['mname']=mname.value;
+                toSend['lname']=lname.value;
+                toSend['dob']=dob.value;
+                toSend['phno']=phno.value;
+                toSend['gender']=gender.value;
+                toSend['salary']=salary.value;
+                toSend['join_date']=join_date.value;
+                var formData = JSON.stringify(toSend);
+                xhr=new XMLHttpRequest();
+                var url='http://localhost:5000/wt2/employees/add_emp ';
+                xhr.open("POST",url);
+                xhr.setRequestHeader("Content-type","application/json");
+                xhr.onreadystatechange=reportfunc;
+                xhr.send(formData);
+            }
+            function reportfunc()
+            {
+                if(this.readyState==4 && this.status==200)
+                {
+                    $("#myModal").modal();
+                    document.getElementById('mt').innerHTML="Employee Added Successfully!";
+                    document.getElementById('mt').style.color="green";
+                    document.getElementById('mb').innerHTML="Close this dialog to proceed";
+                   
+                    
+                }
+                else{
+                    $("#myModal").modal();
+                    document.getElementById('mt').innerHTML="Employee Was Not Added!";
+                    document.getElementById('mt').style.color="red";
+                    document.getElementById('mb').innerHTML="Close this dialog and try again!";
+                    
+                }
+            }   
+        </script>    
+             
+</body>
+</html>
