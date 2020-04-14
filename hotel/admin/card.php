@@ -18,11 +18,11 @@
 <body>
 <div class="container">
   <<h1 align='center'>SUNRISE HOTEL</h1>
-          
+              
   <table class="table table-striped">
     
 	<tbody>
-  <?php
+<?php
     
     $payee_name=$_POST['payee_name'];
     $custID=$_POST['custID'];
@@ -30,18 +30,18 @@
     $invoice_number=$_POST['inv'];
     
     
-    echo $payee_name.$custID.$total_amt;
+    
     $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
     if(!$conn){
         echo "Error:Connection failed";
     }
-   
+    
     $sql="SELECT * FROM customer WHERE GUEST_ID=$custID";
     $query_result=mysqli_query($conn,$sql);
-	  echo mysqli_error($conn); 
+	echo mysqli_error($conn); 
     $row = $query_result->fetch_assoc();
     $ph_nooo=$row['PH_NO'];
-	  echo "hi".$ph_nooo;
+	echo "hi".$ph_nooo;
     #echo $ph_nooo;
     $date=date("Y-m-d");
     #echo "CUST: ".$custID;
@@ -80,8 +80,10 @@
     {
         echo "Payement Failed";
     }
+	
 ?>
-</tbody>
+
+    </tbody>
   </table>
  <button onclick=homepage()>Home Page</button>
 </div>
