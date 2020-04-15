@@ -135,101 +135,81 @@ $(document).ready(function(){
     </div>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <!--PAGE CONETENT HERE!!!!-->
+<div class="container">
 
-<div class="container">            
+             
   <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>CATEGORY</th>
-        <th>PERIOD OF STAY</th>
-        <th>COST_PER DAY</th>
-		<th>TOTAL_COST</th>
-      </tr>
-    </thead>
-    <tbody>
+    
+	<tbody>
 <?php
-    if(isset($_POST['submit']))
-    {
-        $payment_method=$_POST['payment_method'];
-        $custId=$_POST['custID'];
-    }
+    
+    $payee_name=$_POST['payee_name'];
+    $custID=$_POST['custID'];
+    $total_amt=$_POST['total_amt'];
+    $invoice_number=$_POST['inv'];
+    
+    
+    
     $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
     if(!$conn){
         echo "Error:Connection failed";
-    } 
-    $sql="SELECT INVOICE_NUMBER FROM invoice where invoice.CUSTOMER_ID=$custId;";
-    $query_result=mysqli_query($conn,$sql);
-    $row = $query_result->fetch_assoc();
-    $invoiceNumber=$row['INVOICE_NUMBER'];
-    //echo "Invoice Number: ".$invoiceNumber."Guest ID: ".$custId."Payement Method: ".$payment_method;
-    $currentDate=date("Y-m-d H:i:s");
-    //echo $currentDate;
-    $sql="INSERT INTO `payment`(`GUEST_NUM`, `PAY_DATE`, `INVOICE_NUMBER`, `PAYMENT_METHODS`) VALUES ($custId,'$currentDate',$invoiceNumber,'$payment_method');";
-    $query_result=mysqli_query($conn,$sql);
-    //echo mysqli_error($conn);
-    if(!$query_result)
-    {
-        echo "SOME PROBLEM";
     }
-    echo "<h3>BILL</h3>";
-    $sql="SELECT PERIOD_STAY,CATEGORY FROM reservation WHERE reservation.GST_ID=$custId;";
-    $query_result=mysqli_query($conn,$sql);
-    $row = $query_result->fetch_assoc();
-    $durationStay=$row['PERIOD_STAY'];
-    $category=$row['CATEGORY'];
-    $sql="SELECT PRICE_PER_DAY FROM price_list WHERE CATEGORY='$category';";
-    $query_result=mysqli_query($conn,$sql);
-    $row = $query_result->fetch_assoc();
-    $price_per_day=$row['PRICE_PER_DAY'];
-	$sql="SELECT VISIT FROM CUSTOMER WHERE GUEST_ID=$custId";
-	$query_result=mysqli_query($conn,$sql);
-    $row = $query_result->fetch_assoc();
-	$visits=$row['VISIT'];
-	$total_amt=$price_per_day*$durationStay;
-	if($visits>5)
-	{
-		$total_amt=$total_amt-(0.25*$total_amt);
-	}
-	else if($visits>15)
-	{
-		$total_amt=$total_amt-(0.35*$total_amt);
-	}
-	
-	
     
-    echo "<tr><td>$category</td><td>$durationStay</td><td>$$price_per_day</td><td>$$total_amt</td></tr>";
-    echo "</tbody></table></div>";
-    if($payment_method=="cash")
+    $sql="SELECT * FROM customer WHERE GUEST_ID=$custID";
+    $query_result=mysqli_query($conn,$sql);
+	echo mysqli_error($conn); 
+    $row = $query_result->fetch_assoc();
+    $ph_nooo=$row['PH_NO'];
+	
+    $date=date("Y-m-d");
+    #echo "CUST: ".$custID;
+    $sql="INSERT INTO `bill`(`AMOUNT`, `NAME`, `DATE`, `PH_NO`, `CUSTOMER_ID`) VALUES ($total_amt,'$payee_name','$date',".$ph_nooo.",$custID)";
+    $query_result=mysqli_query($conn,$sql);
+    echo mysqli_error($conn);	
+    if($query_result)
     {
-		echo"<div class='container'><h2>ENTER THE FOLLOWING DETAILS</h2><p></p>";
-        echo "  <form class='form-inline' action='cash.php' method='POST'><div class='form-group'><label for='email'>AMOUNT GIVEN    </label><input type='text' class='form-control' id='email' placeholder='Amount given' name='money_given'></div>";
-		echo"<div class='form-group'><label for='pwd'>IN THE NAME OF:    </label><input type='text' class='form-control' id='pwd' placeholder='on the name of' name='payee_name'></div>";
-		echo"<div class='form-group'><input type='hidden' name='custID' value=".$custId."><input type='hidden' name='total_amt' value=".$total_amt."><input type='hidden' name='inv' value=".$invoiceNumber."></div>";
-		echo"<input type='submit' name='submit' class='btn btn-default'>";
-        echo"</form></div>";
+        $sql=" UPDATE `invoice` `STATUS`='PAYEMENT SUCCESFUL' WHERE `INVOICE_NUMBER`=$invoice_number;";
+        $query_result=mysqli_query($conn,$sql);
+        $sql="SELECT `FNAME`, `MINIT`, `LNAME` FROM `customer` WHERE `GUEST_ID`=$custID;";
+        $query_result=mysqli_query($conn,$sql);
+        $row = $query_result->fetch_assoc();
+        $FNAME=$row['FNAME'];
+        $MINIT=$row['MINIT'];
+        $LNAME=$row['LNAME'];
+        $name=$FNAME." ".$MINIT." ".$LNAME;
+        $sql="SELECT  `CHECKIN_DATE`, `CHECKOUT_DATE`, `PERIOD_STAY`,`CATEGORY` FROM `reservation` WHERE GST_ID=$custID";
+        $query_result=mysqli_query($conn,$sql);
+        $row = $query_result->fetch_assoc();
+        $checkindate=$row['CHECKIN_DATE'];
+        $checkoutdate=$row['CHECKOUT_DATE'];
+        $periodstay=$row['PERIOD_STAY'];
+        $category=$row['CATEGORY'];
+        $sql="SELECT BILL_ID FROM bill WHERE CUSTOMER_ID=$custID";
+        $query_result=mysqli_query($conn,$sql);
+        $row = $query_result->fetch_assoc();
+        $bill_id=$row['BILL_ID'];
+		$sqlq="UPDATE `room` SET `CUSTOMER_ID`=NULL WHERE room.CUSTOMER_ID=$custID";
+		$query_rresult=mysqli_query($conn,$sqlq);
+		$sql="DELETE FROM reservation where GST_ID=$custID";
+		$query_result=mysqli_query($conn,$sql);
+        echo "<tr><td>Guest Name: </td><td><b>".$name."</b></td></tr><tr><td>Phone Number: </td><td>".$ph_nooo."</td></tr><tr><td>Customer ID: </td><td>".$custID."</td></tr><tr><td>Bill Number: </td><td>".$bill_id."</td></tr><tr></tr><tr><td>Category: </td><td>".$category."</td></tr><tr><td>Duration Of Stay: </td><td>".$periodstay."</td></tr><tr><td>Bill Amount: </td><td>$". $total_amt."</td></tr>";
     }
-    else if($payment_method=='card')
+    else
     {
-        echo"<form action='card.php' method='POST'><input type='text' placeholder='Card Number' name='card_number'><br><input type='text' placeholder='CVV' name='cvv'><br><input type='date' placeholder='Expiry Date' name='expiry_date'><br><input type='text' name='payee_name' placeholder='Name on Card'><br>";
-        echo"<div class='form-group'><input type='hidden' name='custID' value=".$custId."><input type='hidden' name='total_amt' value=".$total_amt."><input type='hidden' name='inv' value=".$invoiceNumber."></div>";
-        echo"<input type='submit' name='submit' class='btn btn-default'>";
-        echo"</form>";
+        echo "Payement Failed";
     }
-    else if($payment_method=="wallets")
-    {
-        echo "<form action='wallet.php' method='POST'><input type='text' placeholder='Paytm Number' name='paid_number'><br><input type='text' name='payee_name' placeholder='Bill in the name of'><br><br><input type='submit' name='submit'><br>";
-        echo"<div class='form-group'><input type='hidden' name='custID' value=".$custId."><input type='hidden' name='total_amt' value=".$total_amt."><input type='hidden' name='inv' value=".$invoiceNumber."></div>";
-        echo"<input type='submit' name='submit' class='btn btn-default'>";
-        echo"</form>";
-    }
+	
+?>
 
-    
-    ?>
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    </tbody>
+  </table>
+ <button onclick=homepage()>Home Page</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
         <script src="dashboard.js"></script>
-	</body>
-</html>
+
+</body>

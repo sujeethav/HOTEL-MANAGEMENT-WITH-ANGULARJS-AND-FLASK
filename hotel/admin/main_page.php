@@ -46,7 +46,7 @@
         <h1 class="cover-heading">Sunrise Hotels</h1>
         <p class="lead">Sunrise Hotels Admin Management Software</p>
         <p class="lead">
-          <a href="dashboard.html" class="btn btn-lg btn-secondary">Click Here for Portal</a>
+          <a href="dashboard.php" class="btn btn-lg btn-secondary">Click Here for Portal</a>
         </p>
     </div>
     
