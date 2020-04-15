@@ -225,7 +225,7 @@ $(document).ready(function(){
             <input type="radio" name="payment_method" value="card">Credit/Debit Card<br>
             <input type='hidden' name='custID' value=<?php echo $custId ?>>
             <input type="radio" name="payment_method" value="wallets">Payment Wallets<br><br><br>
-            <button type="submit" class="btn btn-dark">Submit</Button><br>
+            <input type="submit" class="btn btn-dark" name="submit"><br>
 
     </form>
 
