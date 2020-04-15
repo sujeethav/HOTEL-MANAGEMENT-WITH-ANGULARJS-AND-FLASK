@@ -5,51 +5,39 @@
 
 <style>
 
-div.divTableCell {
-  border: 10px solid #000000;
-  background-color: #FFFFFF;
-  width: 50%;
-  height: 20%;
-  text-align: left;
-  border-collapse: collapse;
+body
+{
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
-  border: 1px solid #FFFFFF;
-  padding: 3px 3px;
+
+
+/* Tables */
+th {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  border: 10	px solid black;
+  background-color: rgb(105,105,105);
+  border-color: rgb(151, 150, 168);
+  color: white;
 }
-.divTable.blueTable .divTableBody .divTableCell {
-  font-size: 13px;
+
+.oddTableRow {
+    background-color:rgb(232, 246, 247);
 }
-.divTable.blueTable .divTableCell:nth-child(even) {
-  background: #FFFFFF;
+
+.tableRow { background-color:rgb(246, 253, 253); } 
+
+tr:hover {background-color: rgba(233, 235, 154, 0.76) !important;}
+.selectedTableRow {
+    background-color: rgba(141, 186, 238, 0.76) !important;
 }
-.blueTable .tableFootStyle {
-  font-size: 14px;
-}
-.blueTable .tableFootStyle .links {
-	 text-align: right;
-}
-.blueTable .tableFootStyle .links a{
-  display: inline-block;
-  background: #FFFFFF;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-.blueTable.outerTableFooter {
-  border-top: none;
-}
-.blueTable.outerTableFooter .tableFootStyle {
-  padding: 3px 5px; 
-}
-/* DivTable.com */
-.divTable{ display: table; }
-.divTableRow { display: table-row; }
-.divTableHeading { display: table-header-group;}
-.divTableCell, .divTableHead { display: table-cell;}
-.divTableHeading { display: table-header-group;}
-.divTableFoot { display: table-footer-group;}
-.divTableBody { display: table-row-group;}
+
+
+
+
+
+
 </style>
 
 
@@ -75,119 +63,67 @@ div.divTableCell {
 
 
 <meta http-equiv="refresh" content="10">
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
 
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Total Number of customers');
+        data.addColumn('number', 'Average Earning per customer');
+        data.addColumn('number', 'Total Earnings');
+        data.addRows({{dat1|tojson}});
 
-      function drawChart() 
-      {
+        var table = new google.visualization.Table(document.getElementById('table_div1'));
 
-        /*var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-        */
-        // console.log(typeof({{datum}}));
-        var data=google.visualization.arrayToDataTable( {{datum | tojson }}  );
-
-        var options = {
-
-          title: 'PAYMENT METHODS',
-                     width:500,
-                     height:400,	
-                     is3D: true,
-                     backgroundColor: '#FFFFFF',
-                     color:'#000000',
-                         legendTextStyle: { color: '#000000' },
-    titleTextStyle: { color: '#000000' },
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
+        table.draw(data, {showRowNumber: false, width: '1200', height: '100',    cssClassNames: { 
+      headerRow: 'headerRow',
+      tableRow: 'tableRow',
+      oddTableRow: 'oddTableRow',
+      selectedTableRow: 'selectedTableRow',
+      headerCell: 'headerCell',
+      tableCell: 'tableCell',
+      rowNumberCell: 'rowNumberCell'
+    } });
       }
     </script>
 
-        <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart1);
-
-      function drawChart1() {
-        var data1 = google.visualization.arrayToDataTable({{dat|tojson}});
-
-        var options1 = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          width:500,
-                     height:400,	
-                     backgroundColor: '#FFFFFF',
-                     color:'#000000',
-                         legendTextStyle: { color: '#000000' },
-    titleTextStyle: { color: '#000000' },
-        hAxis: {color: '#000000'}
-        };
-
-        var chart1 = new google.visualization.LineChart(document.getElementById('LineChart'));
-
-        chart1.draw(data1, options1);
-      }
-    </script>
-
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart2);
-
-      function drawChart2() {
-        var data2 = google.visualization.arrayToDataTable({{dat3 |tojson	}});
-
-        var options2 = {
-          chart: {
-            title: 'Gender Ratio',
-            subtitle: 'So Far',
-          },
-          bars: 'horizontal' ,
-
-                    width:500,
-                     height:400,
-           colors: ['yellow','green']// Required for Material Bar Charts.
-        };
-
-        var chart2 = new google.charts.Bar(document.getElementById('barchart_material'));
-
-        chart2.draw(data2, google.charts.Bar.convertOptions(options2));
-      }
-    </script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart3);
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
 
-      function drawChart3() {
-        var data3 = google.visualization.arrayToDataTable({{dat4 |tojson	}});
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Salary');
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Date Of Joining');
+        data.addRows({{dat2|tojson}});
 
-        var options3 = {
-          chart: {
-            title: 'Ongoing Reservations',
-            subtitle: 'occupancy in each category of rooms',
-          },
-          bars: 'vertical' ,
+        var table = new google.visualization.Table(document.getElementById('table_div2'));
 
-                    width:500,
-                     height:400,
-           colors: ['green','green']// Required for Material Bar Charts.
-        };
-
-        var chart3 = new google.charts.Bar(document.getElementById('barchart_material1'));
-
-        chart3.draw(data3, google.charts.Bar.convertOptions(options3));
+        table.draw(data, {showRowNumber: true,width: '1200', height: '200', cssClassNames: { 
+      headerRow: 'headerRow',
+      tableRow: 'tableRow',
+      oddTableRow: 'oddTableRow',
+      selectedTableRow: 'selectedTableRow',
+      headerCell: 'headerCell',
+      tableCell: 'tableCell',
+      rowNumberCell: 'rowNumberCell'
+    }});
       }
     </script>
+
+
+
+
+
+
+
+
+
+   
     <link href="http://127.0.0.1/webtech-2/hotel/admin/dash.css" rel="stylesheet">
   </head>
 <body>
@@ -268,25 +204,17 @@ div.divTableCell {
       <!--PAGE CONETENT HERE!!!!-->
       <br>
 <div class="page-header">
-  <h2>Analytics</h2>
+  <h2>Statistics</h2>
 </div>
 <hr/>
-<div class="divTable blueTable">
-<div class="divTableBody">
-<div class="divTableRow">
-<div class="divTableCell" id="piechart" ></div>
-<div class="divTableCell" id="LineChart">{{dat}}</div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell" id="barchart_material"></div>
-<div class="divTableCell" id="barchart_material1"></div>
-</div>
-<div class="divTableRow">
-<div class="divTableCell"></div>
-<div class="divTableCell"></div>
-</div>
-</div>
-</div>
+<h3>INCOME STATISTICS</h3>
+<br>
+<div id="table_div1"></div>
+<br>
+<br>
+<h3>TOP 3 SALARIED EMPLOYEES</h3>
+<br>
+<div id="table_div2"></div>
       </main>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
@@ -295,3 +223,4 @@ div.divTableCell {
         <script src="http://127.0.0.1/webtech-2/hotel/admin/dashboard.js"></script></body>       
 </body>
 </html>
+
