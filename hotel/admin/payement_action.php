@@ -1,8 +1,41 @@
 
-DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<style type="text/css">
+<DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Current Room Service</title>
+        <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
+  <style>
+  .navbar-default {
+  background-color: #0B235A;
+  background-image: none;
+  background-repeat: no-repeat;
+ } 
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+ 
+ 
+  
+ </style>
+ <style type="text/css">
 		table{
 			border-collapse: collapse;
 			width: 100%;
@@ -15,93 +48,95 @@ DOCTYPE html>
 			background-color: #005f69;
 			color: white;
 		}
-		</style>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="top-banner.jpg">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Travel</title>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/jquery-ui.css">				
-			<link rel="stylesheet" href="css/nice-select.css">							
-			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">				
-			<link rel="stylesheet" href="css/main.css">
-		</head>
+<link href="dash.css" rel="stylesheet">
+</head>
 		<body>	
-			<header id="header">
-				<div class="header-top">
-					<div class="container">
-			  		<div class="row align-items-center">
-			  			<div class="col-lg-6 col-sm-6 col-6 header-top-left">
-			  				<ul>
-			  					<li><a href="#">Visit Us</a></li>
-			  					<li><a href="#">Book rooms</a></li>
-			  				</ul>			
-			  			</div>
-			  			<div class="col-lg-6 col-sm-6 col-6 header-top-right">
-							<div class="header-social">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-dribbble"></i></a>
-								<a href="#"><i class="fa fa-behance"></i></a>
-							</div>
-			  			</div>
-			  		</div>			  					
-					</div>
-				</div>
-				<div class="container main-menu">
-					<div class="row align-items-center justify-content-between d-flex">
-				      
-				      <nav id="nav-menu-container">
-				        <ul class="nav-menu">
-				          <li><a href="index.php">Home</a></li>
-				          <li><a href="about.php">About</a></li>
-				          <li><a href="packages.php">Packages</a></li>
-				          <li><a href="hotels.php">Hotels</a></li>
-				          <li><a href="insurance.php">Insurance</a></li>
-				          <li class="menu-has-children"><a href="">Pages</a>
-				            <ul>
-				            	  <li><a href="elements.php">Elements</a></li>				                		
-				            </ul>
-				          </li>					          					          		          
-				          <li><a href="contact.php">Contact</a></li>
-				        </ul>
-				      </nav><!-- #nav-menu-container -->					      		  
-					</div>
-				</div>
-			</header><!-- #header -->
-			  
-			<!-- start banner Area -->
-			<section class="about-banner relative">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">				
-					<div class="row d-flex align-items-center justify-content-center">
-						<div class="about-content col-lg-12">
-							<h1 class="text-white">
-								Tour Packages				
-							</h1>	
-							<p class="text-white link-nav"><a href="index.php">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="packages.php"> Tour Packages</a></p>
-						</div>	
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->	
+		<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sunrise Hotels</a>
+              <ul class="navbar-nav px-3">
+                  <li class="nav-item text-nowrap">
+                      <a class="nav-link" href="#">Sign out</a>
+                  </li>
+              </ul>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php">
+                        <span data-feather="home"></span>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roomreservation.php">
+                        <span data-feather="plus-square"></span>
+                        Room Reservation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="custroom.html">
+                        <span data-feather="activity"></span>
+                            On-Going Room Service
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_add.html">
+                        <span data-feather="user-plus"></span>
+                            Add Employee
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cur_employees.html">
+                        <span data-feather="users"></span>
+                            View Current Employees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_delete.html">
+                        <span data-feather="user-minus"></span>
+                            Remove Employees
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="stats.php">
+                        <span data-feather="bar-chart-2"></span>
+                            View Stats
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/graph">
+                        <span data-feather="bar-chart-2"></span>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
   
 
