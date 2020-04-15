@@ -69,7 +69,7 @@ $(document).ready(function(){
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" href="dashboard.php">
                         <span data-feather="home"></span>
                         Dashboard
                         </a>
@@ -136,8 +136,8 @@ $(document).ready(function(){
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <!--PAGE CONETENT HERE!!!!-->
 <div class="container">
-  <<h1 align='center'>SUNRISE HOTEL</h1>
-              
+
+             
   <table class="table table-striped">
     
 	<tbody>
@@ -161,7 +161,6 @@ $(document).ready(function(){
     $row = $query_result->fetch_assoc();
     $ph_nooo=$row['PH_NO'];
 	
-    #echo $ph_nooo;
     $date=date("Y-m-d");
     #echo "CUST: ".$custID;
     $sql="INSERT INTO `bill`(`AMOUNT`, `NAME`, `DATE`, `PH_NO`, `CUSTOMER_ID`) VALUES ($total_amt,'$payee_name','$date',".$ph_nooo.",$custID)";
