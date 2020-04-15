@@ -159,6 +159,7 @@ $(document).ready(function(){
     } 
     $sql="SELECT INVOICE_NUMBER FROM invoice where invoice.CUSTOMER_ID=$custId;";
     $query_result=mysqli_query($conn,$sql);
+	echo mysqli_error($conn); 
     $row = $query_result->fetch_assoc();
     $invoiceNumber=$row['INVOICE_NUMBER'];
     //echo "Invoice Number: ".$invoiceNumber."Guest ID: ".$custId."Payement Method: ".$payment_method;
