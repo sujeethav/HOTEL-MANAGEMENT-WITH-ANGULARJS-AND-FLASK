@@ -14,11 +14,11 @@
         <link href="dash.css" rel="stylesheet">
 </head>
 
-<<<<<<< HEAD
+
                     <li>
                         <a  href="http://localhost/webtech-2/hotel/admin/roomreservation.php"><i class="fa fa-home"></i> ROOM RESERVATION</a>
 						
-=======
+
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
             <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="main_page.html">Sunrise Hotels</a>
@@ -38,7 +38,7 @@
                         <span data-feather="home"></span>
                         Dashboard
                         </a>
->>>>>>> upstream/master
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="roomreservation.php">
@@ -46,27 +46,11 @@
                         Room Reservation
                         </a>
                     </li>
-<<<<<<< HEAD
-                    <li>
-                        <a  href="http://localhost/webtech-2/hotel/admin/EMPLOYEE_ADD/INDEX.php"><i class="fa fa-bars"></i>ADD EMPLOYEE</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/webtech-2/hotel/admin/payement.php"><i class="fa fa-bars"></i>PAYMENT</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/webtech-2/hotel/admin/EMPLOYEE_DELETE/delete.php"><i class="fa fa-bars"></i>DELETE EMPLOYEE</a>
-						
-                    </li>
-                    <li>
-                        <a  href="http://localhost/webtech-2/hotel/admin/stats.php"><i class="fa fa-bars"></i>STATS</a>
-						
-                    </li>					
+					
                     
 					</ul>
 
-=======
+
                     <li class="nav-item">
                         <a class="nav-link" href="custroom.html">
                         <span data-feather="activity"></span>
@@ -98,7 +82,7 @@
                 <hr/>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="stats.php">
+                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/stats">
                         <span data-feather="bar-chart-2"></span>
                             View Stats
                         </a>

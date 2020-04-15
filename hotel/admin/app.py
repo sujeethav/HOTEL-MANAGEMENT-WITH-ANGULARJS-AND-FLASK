@@ -150,7 +150,41 @@ def graph():
 	return render_template('index.html',datum=out,dat=out2, dat3=out3,dat4=out4)
 
 
+@app.route('/wt2/stats')
 
+
+
+def stats():
+	mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="hotel")
+	cur=mydb.cursor()
+	cur.execute("select SUM(AMOUNT) as tamt,AVG(AMOUNT) as avg,COUNT(AMOUNT) as cnt from bill")
+	output1=cur.fetchall()
+	out1=[]
+	ar=[]
+	ar.append(int(output1[0][0]))
+	ar.append(int(output1[0][1]))
+	ar.append(int(output1[0][2]))
+	out1.append(ar)
+	cur.execute("select * from employee order by SALARY DESC limit 0,3")
+	output2=cur.fetchall()
+	out2=[]
+	for row in output2:
+		ar=[]
+		ar.append(row[0])
+		ar.append(row[1])
+		ar.append(str(row[4]))
+		out2.append(ar)
+	
+	
+
+	
+	return render_template('stat.html',dat1=out1,dat2=out2)
+
+	
+		 
+	
+
+	
 
 if __name__ == '__main__':
     app.run(debug=True)
