@@ -1,39 +1,151 @@
+
+<DOCTYPE html>
 <html>
-<head>
- <title>Table with database</title>
- <style>
-  table {
-   border-collapse: collapse;
-   width: 100%;
-   color: #588c7e;
-   font-family: monospace;
-   font-size: 25px;
-   text-align: left;
-     } 
-  th {
-   background-color: #588c7e;
-   color: white;
-    }
-  tr:nth-child(even) {background-color: #f2f2f2}
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+
+        <title>Current Room Service</title>
+        <link rel="icon" href="web-icon/favicon.ico" type="image/icon type">
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+
+
+  <style>
+  .navbar-default {
+  background-color: #0B235A;
+  background-image: none;
+  background-repeat: no-repeat;
+ } 
+ .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+ 
+ 
+  
  </style>
-</head>
+ <style type="text/css">
+		table{
+			border-collapse: collapse;
+			width: 100%;
+			color: #000000;
+			font-family: monospace;
+			font-size: 18px;
+			text-align: Left;
+		}
+		th{
+			background-color: #005f69;
+			color: white;
+		}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    function payement_page()
-    {
-        window.open('paypage.php')
-    }
-    function cash()
-    {
-        
-    }
-    </script>
-<body>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<link href="dash.css" rel="stylesheet">
+</head>
+		<body>	
+		<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Sunrise Hotels</a>
+              <ul class="navbar-nav px-3">
+                  <li class="nav-item text-nowrap">
+                      <a class="nav-link" href="#">Sign out</a>
+                  </li>
+              </ul>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php">
+                        <span data-feather="home"></span>
+                        Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="roomreservation.php">
+                        <span data-feather="plus-square"></span>
+                        Room Reservation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="custroom.html">
+                        <span data-feather="activity"></span>
+                            On-Going Room Service
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_add.html">
+                        <span data-feather="user-plus"></span>
+                            Add Employee
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cur_employees.html">
+                        <span data-feather="users"></span>
+                            View Current Employees
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="employee_delete.html">
+                        <span data-feather="user-minus"></span>
+                            Remove Employees
+                        </a>
+                    </li>
+                </ul>
+                <hr/>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="stats.php">
+                        <span data-feather="bar-chart-2"></span>
+                            View Stats
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/graph">
+                        <span data-feather="bar-chart-2"></span>
+                            Analytics
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+  
+
 <h1>Customer And Room Details</h1><br>
  <table>
  <tr>
   <th>GUEST ID</th> 
   <th>AADHAR_NO</th> 
-  <th>FNAME</th>
+  <th>FNAME</th><!DOCTYPE html>          
   <th>MINIT</th>
   <th>LNAME</th>
   <th>Phone Number</th>
@@ -98,7 +210,8 @@
     <h2>Pay Here</h2>
     
     <form method="POST" action="paying.php">
-    <input type="radio" name="payment_method" value="cash">Cash<br>
+
+            <input type="radio" name="payment_method" value="cash">Cash<br>
             <input type="radio" name="payment_method" value="card">Credit/Debit Card<br>
             <input type='hidden' name='custID' value=<?php echo $custId ?>>
             <input type="radio" name="payment_method" value="wallets">Payment Wallets<br>

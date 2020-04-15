@@ -84,7 +84,10 @@
     }
     else if($payment_method=='card')
     {
-        echo "<form action='card.php'><input type='text' placeholder='Card Number' name='card_number'><br><input type='text' placeholder='CVV' name='cvv'><br><input type='date' placeholder='Expiry Date' name='expiry_date'><br><input type='text' name='payee_name' placeholder='Name on Card'><br><input type='submit' name='submit'><br></form>";
+        echo"<form action='card.php' method='POST'><input type='text' placeholder='Card Number' name='card_number'><br><input type='text' placeholder='CVV' name='cvv'><br><input type='date' placeholder='Expiry Date' name='expiry_date'><br><input type='text' name='payee_name' placeholder='Name on Card'><br>";
+        echo"<div class='form-group'><input type='hidden' name='custID' value=".$custId."><input type='hidden' name='total_amt' value=".$total_amt."><input type='hidden' name='inv' value=".$invoiceNumber."></div>";
+        echo"<input type='submit' name='submit' class='btn btn-default'>";
+        echo"</form>";
     }
     else if($payment_method=="wallets")
     {
