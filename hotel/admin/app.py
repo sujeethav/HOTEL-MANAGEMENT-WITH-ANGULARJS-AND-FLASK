@@ -39,6 +39,21 @@ def view_emps():
 		content = {}
 	return jsonify(payload),200
 
+@app.route('/wt2/price/view',methods=['GET','OPTIONS'])
+@cross_origin()
+def view_price():
+	mydb = mysql.connector.connect(host="localhost",user="root",passwd="root",database="hotel")
+	cur=mydb.cursor()
+	cur.execute("SELECT * FROM `price_list` WHERE 1")
+	rv = cur.fetchall()
+	payload = []
+	content = {}
+	for result in rv:
+		content = {'CATEGORY': result[0], 'PRICE_PER_DAY': result[1]}
+		payload.append(content)
+		content = {}
+	return jsonify(payload),200
+
 @app.route('/wt2/employees/add_emp',methods=['POST','OPTIONS'])
 @cross_origin()
 def view_emp():
