@@ -50,37 +50,6 @@ $(document).ready(function(){
   });
 });
 </script>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <link href="dash.css" rel="stylesheet">
   </head>
 <body>
@@ -146,8 +115,8 @@ tr:nth-child(even) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://127.0.0.1:5000/wt2/graph">
-                        <span data-feather="bar-chart-2"></span>
+                        <a class="nav-link" href="http://localhost:5000/wt2/graph">
+                        <span data-feather="bar-chart"></span>
                             Analytics
                         </a>
                     </li>
@@ -159,20 +128,21 @@ tr:nth-child(even) {
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <!--PAGE CONETENT HERE!!!!-->
 
-
-
-
+<br>
+<div class="page-header">
+  <h2>Statistics</h2>
+</div>
+<hr/>
 <div class="container">
 
-<h2>earnings</h2>  
-<br><br>
 
-<table>
-  <thead>
+<table class="table table-striped table-hover">
+<caption style="caption-side:top;font-weight:bold;font-size:15px;">Earnings</caption>
+  <thead class="thead-dark">
   <tr>
-    <th>Total customer count</th>
-    <th>average earning per customer</th>
-    <th>total earning</th>
+    <th>TOTAL CUSTOMER COUNT</th>
+    <th>AVERAGE EARNING PER CUSTOMER</th>
+    <th>TOTAL EARNING</th>
   </tr>
   </thead>
   <tbody id="myTable">
@@ -183,11 +153,11 @@ tr:nth-child(even) {
  ?>
   </tbody>
 </table>
-<table>
-<h2> top 3 salaried employees<h2>
-  <thead>
+<table class="table table-striped table-hover">
+<caption style="caption-side:top;font-weight:bold;font-size:15px;">Top 3 Salaried Employees</caption>
+  <thead class="thead-dark">
   <tr>
-    <th>Name</th>
+    <th>NAME</th>
     <th>SALARY</th>
     <th>JOIN DATE</th>
   </tr>
@@ -205,9 +175,9 @@ tr:nth-child(even) {
   </tbody>
 </table>
 
-<table>
-<h2> <h2>
-  <thead>
+<table class="table table-striped table-hover">
+<caption style="caption-side:top;font-weight:bold;font-size:15px;">Customers Per Category</caption>
+  <thead class="thead-dark">
   <tr>
     <th>NO. OF CUSTOMERS</th>
     <th>CATEGORY</th>

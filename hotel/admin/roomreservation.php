@@ -103,7 +103,14 @@
                             View Stats
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:5000/wt2/graph">
+                        <span data-feather="bar-chart"></span>
+                            Analytics
+                        </a>
+                    </li> 
                 </ul>
+
                 </div>
             </nav>
         </div>
