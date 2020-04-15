@@ -69,7 +69,7 @@ $(document).ready(function(){
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">
+                        <a class="nav-link" href="dashboard.html">
                         <span data-feather="home"></span>
                         Dashboard
                         </a>
