@@ -162,11 +162,11 @@ $(document).ready(function(){
     $row = $query_result->fetch_assoc();
     $invoiceNumber=$row['INVOICE_NUMBER'];
     //echo "Invoice Number: ".$invoiceNumber."Guest ID: ".$custId."Payement Method: ".$payment_method;
-    $currentDate=date("Y-m-d H:i:s");
+    $currentDate=date("Y-m-d");
     //echo $currentDate;
-    $sql="INSERT INTO `payment`(`GUEST_NUM`, `PAY_DATE`, `INVOICE_NUMBER`, `PAYMENT_METHODS`) VALUES ($custId,'$currentDate',$invoiceNumber,'$payment_method');";
+    $sql="INSERT INTO payment (GUEST_NUM, PAY_DATE, INVOICE_NUMBER, PAYMENT_METHODS) VALUES ($custId,'$currentDate',$invoiceNumber,'$payment_method');";
     $query_result=mysqli_query($conn,$sql);
-    //echo mysqli_error($conn);
+    echo mysqli_error($conn);
     if(!$query_result)
     {
         echo "SOME PROBLEM";

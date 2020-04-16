@@ -166,8 +166,9 @@ $(document).ready(function(){
     if(!$conn){
         echo "Connection failed";
     } 
-    $sql="SELECT GUEST_ID,AADHAR_NO,FNAME,MINIT,LNAME,PH_NO,ROOM_NO,CATEGORY FROM customer,room WHERE ROOM.CUSTOMER_ID=customer.GUEST_ID AND customer.GUEST_ID=$custId;";
+    $sql="SELECT GUEST_ID,AADHAR_NO,FNAME,MINIT,LNAME,PH_NO,ROOM_NO,CATEGORY FROM customer,room WHERE room.CUSTOMER_ID=customer.GUEST_ID AND customer.GUEST_ID=$custId;";
     $query_result=mysqli_query($conn,$sql);
+	echo mysqli_error($conn);
     if($query_result){
             // output data of each row
             while($row = $query_result->fetch_assoc()) {
@@ -201,7 +202,7 @@ $(document).ready(function(){
         //echo $custId;
         if (mysqli_num_rows($query_result)==0)
         {
-            $sql="INSERT INTO `invoice`(`STATUS`, `INVOICE_DESCRIPTION`, `CUSTOMER_ID`) VALUES ('PAYMENT PENDING',NULL,$custId);";
+            $sql="INSERT INTO `invoice`(`STATUS`, `INVOICE_DESCRIPTION`, `CUSTOMER_ID`) VALUES ('PENDING',NULL,$custId);";
             $query_result=mysqli_query($conn,$sql);
             
         }
