@@ -140,9 +140,9 @@ $(document).ready(function(){
             <div id="page-inner">
 			 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-header">
+                        <h3 class="page-header">
                             PAYMENT <small></small>
-                        </h1>
+                        </h3>
                     </div>
                 </div> 
                  
@@ -150,8 +150,8 @@ $(document).ready(function(){
             <div class="row">
                 
                 <div class="col-md-5 col-sm-5">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-light bg-dark">
                             PAYMENT GATEWAY
                         </div>
                         <div class="panel-body">
@@ -165,7 +165,7 @@ $(document).ready(function(){
                                <div class="col-md-12 col-sm-12">
                     
                         
-						<input type="submit" name="submit" class="btn btn-primary">
+						<input type="submit" name="submit" class="btn btn-dark">
 
 						</form>
 							

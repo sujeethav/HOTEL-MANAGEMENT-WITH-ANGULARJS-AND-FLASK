@@ -181,7 +181,7 @@ $(document).ready(function(){
     $query_result=mysqli_query($conn,$sql);
     $row = $query_result->fetch_assoc();
     $price_per_day=$row['PRICE_PER_DAY'];
-	$sql="SELECT VISIT FROM CUSTOMER WHERE GUEST_ID=$custId";
+	$sql="SELECT VISIT FROM customer WHERE GUEST_ID=$custId";
 	$query_result=mysqli_query($conn,$sql);
     $row = $query_result->fetch_assoc();
 	$visits=$row['VISIT'];

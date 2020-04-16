@@ -78,6 +78,12 @@
                             Remove Employees
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="payement.php">
+                        <span data-feather="credit-card"></span>
+                            Make Payment
+                        </a>
+                    </li>
                 </ul>
                 <hr/>
                 <ul class="nav flex-column">
@@ -145,7 +151,7 @@
                             <input name="city" type="text" class="form-control" required>        
                     </div>		
                 </div>
->>>>>>> upstream/master
+
             </div>
     </div>
 

@@ -146,8 +146,9 @@ $(document).ready(function(){
 
   
 
-<h1>Customer And Room Details</h1><br>
- <table>
+<h3>Customer And Room Details</h3><br>
+ <table class="table table-striped table-hover">
+ <thead class="thead-dark">
  <tr>
   <th>GUEST ID</th> 
   <th>AADHAR_NO</th> 
@@ -158,6 +159,7 @@ $(document).ready(function(){
   <th>Room Number</th>
   <th>Category</th>
  </tr>
+</thead>
  <?php
     $custId=$_POST['custid'];
     $conn = mysqli_connect("localhost","root","root","hotel") or die(mysql_error());
@@ -174,16 +176,18 @@ $(document).ready(function(){
          }
          echo "</table>";
          }
-    echo "<h1>Reservation Details</h1>";
+    echo "<h3>Reservation Details</h3>";
     $sql="SELECT RID,CHECKIN_DATE,CHECKOUT_DATE,PERIOD_STAY,HALL_NUMBER,ROOM_NUMBER,CATEGORY FROM reservation WHERE (reservation.GST_ID,reservation.ROOM_NUMBER) IN (SELECT customer.GUEST_ID,room.ROOM_NO FROM room,customer where room.CUSTOMER_ID=customer.GUEST_ID and customer.GUEST_ID=$custId);";
     $query_result=mysqli_query($conn,$sql);
     if($query_result){
-        echo "<table>";
+        echo "<table class='table table-striped table-hover'>";
+        echo "<thead class='thead-dark'>";
         echo "<tr><th>Reservation ID</th><th>Check-in Date</th><th>Check-out Date</th><th>Period Stay</th><th>Hall Number</th><th>Room Number</th><th>Category</th></tr>";
+        echo "</thead>";
 
         while($row = $query_result->fetch_assoc()) {
             echo "<tr><td>" . $row["RID"]. "</td><td>" . $row["CHECKIN_DATE"] . "</td><td>"
-        . $row["CHECKOUT_DATE"]. "</td><td>". $row["PERIOD_STAY"]. "</td><td>". $row["HALL_NUMBER"]. "</td><td>". $row["ROOM_NUMBER"]. "</td><td>". $row["CATEGORY"]. "</td></tr>";
+        . $row["CHECKOUT_DATE"]. "</td><td>". $row["PERIOD_STAY"]. "</td><td>". $row["HALL_NUMBER"]. "</td><td>". $row["ROOM_NUMBER"]. "</td><td>". $row["CATEGORY"]. "</td></tr><br>";
         }
         echo "</table>";
         }
@@ -213,15 +217,15 @@ $(document).ready(function(){
     
         ?>
     
-    <h2>Pay Here</h2>
+    <h3>Pay Here</h3>
     
     <form method="POST" action="paying.php">
 
             <input type="radio" name="payment_method" value="cash">Cash<br>
             <input type="radio" name="payment_method" value="card">Credit/Debit Card<br>
             <input type='hidden' name='custID' value=<?php echo $custId ?>>
-            <input type="radio" name="payment_method" value="wallets">Payment Wallets<br>
-            <input type="submit" name="submit"><br>
+            <input type="radio" name="payment_method" value="wallets">Payment Wallets<br><br><br>
+            <input type="submit" class="btn btn-dark" name="submit"><br>
 
     </form>
 
